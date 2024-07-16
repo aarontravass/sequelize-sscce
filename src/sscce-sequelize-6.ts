@@ -33,7 +33,7 @@ export async function run() {
   // You can use sinon and chai assertions directly in your SSCCE.
   const spy = sinon.spy();
   sequelize.afterBulkSync(() => spy());
-  await sequelize.sync({ force: true });
+  await sequelize.sync();
   expect(spy).to.have.been.called;
 
   console.log(await Foo.create({ name: 'TS foo' }));
